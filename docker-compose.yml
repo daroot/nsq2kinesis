@@ -1,0 +1,13 @@
+version: '2'
+services:
+  kinesis:
+    image: dlsniper/kinesalite
+    command: kinesalite --createStreamMs 5 --updateStreamMs 5
+    ports:
+      - "4567:4567"
+
+  nsqd:
+    image: nsqio/nsq
+    command: /nsqd
+    ports:
+      - "4150-4151:4150-4151"
